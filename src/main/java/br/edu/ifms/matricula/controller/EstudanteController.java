@@ -23,27 +23,26 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @Tag(name = "Aluno", description = "Gerenciamento de estudantes")
 
 public class EstudanteController {
-	
+
 	@GetMapping
-	public ResponseEntity< String>olamundo(){
-		return ResponseEntity.ok("Ola mundo");		
+	public ResponseEntity<String> olamundo() {
+		return ResponseEntity.ok("Ola mundo");
 	}
-	
+
 	@Operation(summary = "Novo recurso", description = "Serviço para cadastrar um recurso")
-	  @ApiResponses(value = {
-	      @ApiResponse(responseCode = "200", description = "Operação de sucesso",
-	          content = @Content(mediaType = "application/json", schema = @Schema(implementation = EstudanteResponse.class))),
-	      @ApiResponse(responseCode = "500", description = "Falha no serviço", content = @Content)
-	  })
-	
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", 
+					description = "Operação de sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = EstudanteResponse.class))),
+			@ApiResponse(responseCode = "500", description = "Falha no serviço", content = @Content) })
+
 	@PostMapping
-	public ResponseEntity<EstudanteResponse> create(@RequestBody EstudanteRequest estudanteRequest){
+	public ResponseEntity<EstudanteResponse> create(@RequestBody EstudanteRequest estudanteRequest) {
 		EstudanteResponse estudante = new EstudanteResponse();
 		estudante.setNome(estudanteRequest.getNome());
 		estudante.setCpf(estudanteRequest.getCpf());
 		estudante.setEmail(estudanteRequest.getEmail());
 		estudante.setId(UUID.randomUUID());
-		
+
 		return ResponseEntity.ok(estudante);
 	}
 
