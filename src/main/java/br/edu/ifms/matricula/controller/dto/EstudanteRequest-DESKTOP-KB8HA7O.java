@@ -1,26 +1,23 @@
 package br.edu.ifms.matricula.controller.dto;
 
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public class EstudanteRequest {
-
-	@Size(max = 80, message = "informe o nome completo")
-	@NotBlank(message = "O campo nome não pode ser vazio")
+	
+	@Size(max=80, message='Informe o nome completo')
+	@NotBlank(message='O campo nome não pode ser vazio')
 	private String nome;
 	
-	@NotBlank(message = "O campo CPF não pode ser vazio")
-	@Size(min = 11, max=11)
+	@Size(min=11, max=11)
+	@NotBlank('O campo CPF não pode ser vazio')
 	private String cpf;
 	
-	@NotBlank(message = "O campo Email não pode ser vazio")
-	@Size(max = 150, message = "informe um endereço de email")
-	@Email	
+	
 	private String email;
 	
-	@NotBlank(message = "O campo Senha não pode ser vazio")
-	@Size(max = 50, message = "informe uma senha com até 50 caracteres")
+	@NotBlank(message='O campo senha não pode ser vazio')
+	@Size(max=50, message='Informe uma senha com até 50 caracteres')
 	private String senha;
 
 	public String getNome() {

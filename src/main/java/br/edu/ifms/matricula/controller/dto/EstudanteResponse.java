@@ -7,8 +7,7 @@ public class EstudanteResponse {
 
 	private String nome;
 	private String cpf;
-	private String email;
-	
+	private String email;	
 	private UUID id;
 	private Instant dtCadastro;
 	private Instant dtAtualizacao;
